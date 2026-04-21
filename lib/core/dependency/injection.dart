@@ -11,6 +11,7 @@ import '../services/navigation_state_service.dart';
 import '../services/khu_vuc_service.dart';
 import '../services/cho_service.dart';
 import '../services/chat_ai_service.dart';
+import '../services/llm_chatbot_service.dart';
 import '../services/search_service.dart';
 import '../services/search_history_service.dart';
 import '../services/cart_api_service.dart';
@@ -91,6 +92,12 @@ Future<void> initDependencies() async {
     () => ChatAIService(),
   );
   AppLogger.info('✅ ChatAIService registered');
+
+  // LLM Chatbot Service - Singleton
+  getIt.registerLazySingleton<LlmChatbotService>(
+    () => LlmChatbotService(chatAiService: getIt<ChatAIService>()),
+  );
+  AppLogger.info('âœ… LlmChatbotService registered');
 
   // Search Service - Singleton
   getIt.registerLazySingleton<SearchService>(

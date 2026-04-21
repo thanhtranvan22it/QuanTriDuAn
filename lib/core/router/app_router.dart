@@ -33,6 +33,7 @@ import '../../feature/buyer/order/presentation/order_detail/screen/order_detail_
 import '../../feature/buyer/order/presentation/order/screen/order_page.dart';
 import '../../feature/buyer/search/presentation/screen/search_screen.dart';
 import '../../feature/buyer/product/presentation/screen/category_product_screen.dart';
+import '../../feature/chat/presentation/screen/chat_hub_screen.dart';
 import '../../feature/user/presentation/edit_profile/screen/edit_profile_page.dart';
 
 /// Quản lý navigation và routing của ứng dụng
@@ -112,6 +113,9 @@ class AppRouter {
 
       case RouteName.search:
         return _buildRoute(settings, const SearchScreen());
+
+      case RouteName.chat:
+        return _buildRoute(settings, const ChatHubScreen());
 
       case RouteName.categoryProducts:
         final args = settings.arguments as Map<String, String>?;
